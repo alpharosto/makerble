@@ -1,0 +1,11 @@
+ <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Patients Details</h2>
+          <%= render @patient %>
+           <%= link_to "Edit this patient", edit_patient_path(@patient),class:"btn btn-primary"%> |
+           <%= link_to "Back to patients", patients_path,class:"btn btn-primary"%>
+
+           <%= button_to "Destroy this patient", @patient, method: :delete %>
+        </div>
+      
+
+

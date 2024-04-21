@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All Patients</h1>
+
+<table class="table">
+  <thead class ="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each_with_index do |patient, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.phone_number %></td>
+        <td><%= link_to "Show this patient", patient %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New patient", new_patient_path ,class:"btn btn-primary"%>
+
