@@ -13,11 +13,11 @@ services:
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
-      - key: postgres://makerble_user:FKTT1VpxDxVav4hjujmxTHozQoZ1PJEy@dpg-coj9s5en7f5s73c5jvug-a/makerble
+      - key: DATABASE_URL
         fromDatabase:
-          name: makerble
+          name: mysite
           property: connectionString
       - key: 94a6132ce2b5b5ad20c0491d5a2962d7
         sync: false
-      - key: postgres://makerble_user:FKTT1VpxDxVav4hjujmxTHozQoZ1PJEy@dpg-coj9s5en7f5s73c5jvug-a.virginia-postgres.render.com/makerble
+      - key: WEB_CONCURRENCY
         value: 2 # sensible default
