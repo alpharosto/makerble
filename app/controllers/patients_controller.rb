@@ -1,7 +1,8 @@
 class PatientsController < ApplicationController
   
   before_action :set_patient, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except:[:index, :show]
+  before_action :correct_user,only:[:edit,:update,:destroy]
   # GET /patients or /patients.json
   def index
     @patients = Patient.all
@@ -13,7 +14,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
-    @patient = Patient.new
+    @patient = current_user.Patient.build
   end
 
   # GET /patients/1/edit
@@ -22,7 +23,7 @@ class PatientsController < ApplicationController
 
   # POST /patients or /patients.json
   def create
-    @patient = Patient.new(patient_params)
+    @patient = current_user.Patient.build(Patient_params)
     
 
     respond_to do |format|
