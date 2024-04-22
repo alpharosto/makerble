@@ -1,6 +1,6 @@
 databases:
-  - name: makerble
-    databaseName: patients
+  - name: patients
+    databaseName: makerble_database
     user: users
     plan: free
 
@@ -10,14 +10,11 @@ services:
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: patients
           property: connectionString
-      - key: 94a6132ce2b5b5ad20c0491d5a2962d7
-        sync: false
       - key: WEB_CONCURRENCY
-        value: 2 # sensible default
+        value: 2
