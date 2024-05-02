@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
-ruby "3.3.0"
+ruby '3.3.0'
+gem 'sinatra'
+gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :jruby]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
